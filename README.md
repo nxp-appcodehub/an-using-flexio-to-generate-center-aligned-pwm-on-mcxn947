@@ -49,7 +49,7 @@ The FlexIO timer can use the MCU's system clock(150MHz) as its clock source.
 
 Connect logic device to FRDM-MCXN236 with some DuPont wires, as shown below:
 
-![hardware](.\images\hardware.png)
+![hardware](images/hardware.png)
 
 ### 3.2 Step 2
 
@@ -57,19 +57,19 @@ Connect logic device to FRDM-MCXN236 with some DuPont wires, as shown below:
 
 1. Open MCUXpresso IDE, in the Quick Start Panel, choose **Import from Application Code Hub**.
 
-   ​	![](.\images\import_project_1.png)
+   ​	![](images/import_project_1.png)
 
 2. Enter the demo name in the search bar.
 
-   ![](.\images\import_project_2.png) 
+   ![](images/import_project_2.png) 
 
 3. Click **Copy GitHub link**, MCUXpresso IDE will automatically retrieve project attributes, then click **Next>**.
 
-   ​	![](.\images\import_project_3.png)
+   ​	![](images/import_project_3.png)
 
 4. Select **main** branch and then click **Next>**, Select the MCUXpresso project, click **Finish** button to complete import.
 
-   ​	![](.\images\import_project_4.png)
+   ​	![](images/import_project_4.png)
 
 - Connect the micro USB cable between the PC host and the USB port (J17) on the board.
 - Compile and download to the board.
@@ -80,7 +80,7 @@ Reset the board, open the logic app on PC, and capture the timing as below.
 
 
 
-![](.\images\result.png)
+![](images/result.png)
 
 ## 5. Support<a name="step5"></a>
 *Provide URLs for help here.*
