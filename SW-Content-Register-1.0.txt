@@ -1,0 +1,13 @@
+NXP Software Content Register
+
+Package:                   an-using-flexio-to-generate-center-aligned-pwm-on-mcxn947
+
+Version:                   Rev 1.0
+Outgoing License:          BSD-3-Clause
+License File:              LICENSE
+Description and comments:  This software accompanies application note, which describes how to use FlexIO state mode to generate center aligned PWM on MCXN Series MCU.
+Release Location:          https://github.com/nxp-appcodehub/an-using-flexio-to-generate-center-aligned-pwm-on-mcxn947
+Origin:                    NXP (BSD-3-Clause)
+                           ARM CMSIS V5.4.0 (Apache-2.0) - https://github.com/ARM-software/CMSIS_5/ 
+
+                    

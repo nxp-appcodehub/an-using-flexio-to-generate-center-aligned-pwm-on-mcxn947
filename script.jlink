@@ -1,0 +1,7 @@
+ExitOnError 1
+r
+h
+loadfile "C:\Users\nxf42870\Documents\MCUXpressoIDE_11.10.0_3148\workspace\frdmmcxn947_flexio_state_mode_center_aligned_pwm\Debug\frdmmcxn947_flexio_state_mode_center_aligned_pwm.hex"
+qc
+
+qc

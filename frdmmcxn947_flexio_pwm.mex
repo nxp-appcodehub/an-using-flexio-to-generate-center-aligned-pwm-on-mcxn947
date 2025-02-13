@@ -1,0 +1,1381 @@
+<?xml version="1.0" encoding= "UTF-8" ?>
+<configuration name="MCXN947" xsi:schemaLocation="http://mcuxpresso.nxp.com/XSD/mex_configuration_16 http://mcuxpresso.nxp.com/XSD/mex_configuration_16.xsd" uuid="c7f4176b-08b8-4aa8-9a85-5bd39571b9e0" version="16" xmlns="http://mcuxpresso.nxp.com/XSD/mex_configuration_16" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <common>
+      <processor>MCXN947</processor>
+      <package>MCXN947VDF</package>
+      <board>FRDM-MCXN947</board>
+      <mcu_data>ksdk2_0</mcu_data>
+      <cores selected="cm33_core0">
+         <core name="Cortex-M33 (Core #0)" id="cm33_core0" description=""/>
+         <core name="Cortex-M33 (Core #1)" id="cm33_core1" description=""/>
+      </cores>
+      <description>Configuration imported from frdmmcxn947_flexio_pwm</description>
+   </common>
+   <preferences>
+      <validate_boot_init_only>true</validate_boot_init_only>
+      <generate_extended_information>false</generate_extended_information>
+      <generate_code_modified_registers_only>false</generate_code_modified_registers_only>
+      <update_include_paths>true</update_include_paths>
+      <generate_registers_defines>false</generate_registers_defines>
+   </preferences>
+   <tools>
+      <pins name="Pins" version="16.0" enabled="true" update_project_code="true">
+         <generated_project_files>
+            <file path="board/pin_mux.c" update_enabled="true"/>
+            <file path="board/pin_mux.h" update_enabled="true"/>
+         </generated_project_files>
+         <pins_profile>
+            <processor_version>16.1.0</processor_version>
+         </pins_profile>
+         <functions_list>
+            <function name="BOARD_InitPins">
+               <description>Configures pin routing and optionally pin electrical features.</description>
+               <options>
+                  <callFromInitBoot>true</callFromInitBoot>
+                  <coreID>cm33_core0</coreID>
+                  <enableClock>true</enableClock>
+               </options>
+               <dependencies>
+                  <dependency resourceType="Peripheral" resourceId="LP_FLEXCOMM4" description="Peripheral LP_FLEXCOMM4 signals are routed in the Pins Tool, but the peripheral is not initialized in the Peripherals Tool." problem_level="1" source="Pins:BOARD_InitPins">
+                     <feature name="initialized" evaluation="equal">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="Peripheral" resourceId="FLEXIO0" description="Peripheral FLEXIO0 signals are routed in the Pins Tool, but the peripheral is not initialized in the Peripherals Tool." problem_level="1" source="Pins:BOARD_InitPins">
+                     <feature name="initialized" evaluation="equal">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.common" description="Pins initialization requires the COMMON Driver in the project." problem_level="2" source="Pins:BOARD_InitPins">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core0">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.port" description="Pins initialization requires the PORT Driver in the project." problem_level="2" source="Pins:BOARD_InitPins">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core0">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+               </dependencies>
+               <pins>
+                  <pin peripheral="LP_FLEXCOMM4" signal="LPFLEXCOMM_P0" pin_num="A1" pin_signal="PIO1_8/WUU0_IN10/LPTMR1_ALT3/TRACE_DATA0/FC4_P0/FC5_P4/CT_INP8/SCT0_OUT2/FLEXIO0_D16/EZH_PIO4/PLU_OUT0/ENET0_TXD2/I3C1_SDA/TSI0_CH17/ADC1_A8">
+                     <pin_features>
+                        <pin_feature name="slew_rate" value="fast"/>
+                        <pin_feature name="open_drain" value="disable"/>
+                        <pin_feature name="drive_strength" value="low"/>
+                        <pin_feature name="pull_select" value="down"/>
+                        <pin_feature name="pull_enable" value="disable"/>
+                        <pin_feature name="passive_filter" value="disable"/>
+                        <pin_feature name="pull_value" value="low"/>
+                        <pin_feature name="input_buffer" value="enable"/>
+                        <pin_feature name="invert_input" value="normal"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="LP_FLEXCOMM4" signal="LPFLEXCOMM_P1" pin_num="B1" pin_signal="PIO1_9/TRACE_DATA1/FC4_P1/FC5_P5/CT_INP9/SCT0_OUT3/FLEXIO0_D17/EZH_PIO5/PLU_OUT1/ENET0_TXD3/I3C1_SCL/TSI0_CH18/ADC1_A9">
+                     <pin_features>
+                        <pin_feature name="slew_rate" value="fast"/>
+                        <pin_feature name="open_drain" value="disable"/>
+                        <pin_feature name="drive_strength" value="low"/>
+                        <pin_feature name="pull_select" value="down"/>
+                        <pin_feature name="pull_enable" value="disable"/>
+                        <pin_feature name="passive_filter" value="disable"/>
+                        <pin_feature name="input_buffer" value="enable"/>
+                        <pin_feature name="invert_input" value="normal"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="FLEXIO0" signal="D, 24" pin_num="R8" pin_signal="PIO4_16/FC2_P2/USB1_OTG_PWR/CT3_MAT0/FLEXIO0_D24/PLU_OUT4/SINC0_MCLK1/CAN1_TXD/OPAMP1_INP0/ADC0_A6"/>
+                  <pin peripheral="FLEXIO0" signal="D, 25" pin_num="R9" pin_signal="PIO4_17/TRIG_IN9/FC2_P3/USB1_OTG_OC/CT3_MAT1/FLEXIO0_D25/PLU_OUT5/SINC0_MBIT1/OPAMP1_INP1/ADC0_B6"/>
+                  <pin peripheral="FLEXIO0" signal="D, 26" pin_num="N10" pin_signal="PIO4_18/CT3_MAT2/FLEXIO0_D26/PLU_OUT6"/>
+                  <pin peripheral="FLEXIO0" signal="D, 0" pin_num="C12" pin_signal="PIO0_8/FC0_P4/CT_INP0/FLEXIO0_D0/ADC0_B8"/>
+                  <pin peripheral="FLEXIO0" signal="D, 1" pin_num="A12" pin_signal="PIO0_9/FC0_P5/CT_INP1/FLEXIO0_D1/ADC0_B9"/>
+                  <pin peripheral="FLEXIO0" signal="D, 2" pin_num="C10" pin_signal="PIO0_18/EWM0_IN/FC0_P2/CT0_MAT2/FLEXIO0_D2/HSCMP0_OUT/PDM0_DATA1/TSI0_CH13/ADC0_A10"/>
+                  <pin peripheral="FLEXIO0" signal="D, 27" pin_num="R10" pin_signal="PIO4_19/TRIG_OUT5/CT3_MAT3/FLEXIO0_D27/PLU_OUT7/SINC0_MCLK_OUT1/OPAMP1_OUT/ADC0_B1/CMP1_IN4P"/>
+                  <pin peripheral="FLEXIO0" signal="D, 28" pin_num="T10" pin_signal="PIO4_20/TRIG_IN8/FC2_P4/CT2_MAT0/FLEXIO0_D28/SINC0_MCLK2/OPAMP2_INP0/ADC1_A6"/>
+               </pins>
+            </function>
+         </functions_list>
+      </pins>
+      <clocks name="Clocks" version="14.0" enabled="true" update_project_code="true">
+         <generated_project_files>
+            <file path="board/clock_config.c" update_enabled="true"/>
+            <file path="board/clock_config.h" update_enabled="true"/>
+         </generated_project_files>
+         <clocks_profile>
+            <processor_version>16.1.0</processor_version>
+         </clocks_profile>
+         <clock_configurations>
+            <clock_configuration name="BOARD_BootClockFRO12M" id_prefix="" prefix_user_defined="false">
+               <description></description>
+               <options/>
+               <dependencies>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.common" description="Clocks initialization requires the COMMON Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockFRO12M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core1">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.common" description="Clocks initialization requires the COMMON Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockFRO12M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core0">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.clock" description="Clocks initialization requires the CLOCK Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockFRO12M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core1">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.clock" description="Clocks initialization requires the CLOCK Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockFRO12M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core0">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.mcx_spc" description="Clocks initialization requires the MCX_SPC Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockFRO12M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core1">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.mcx_spc" description="Clocks initialization requires the MCX_SPC Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockFRO12M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core0">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+               </dependencies>
+               <clock_sources/>
+               <clock_outputs>
+                  <clock_output id="CLK_144M_clock.outFreq" value="144 MHz" locked="false" accuracy=""/>
+                  <clock_output id="CLK_48M_clock.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="FRO_12M_clock.outFreq" value="12 MHz" locked="false" accuracy=""/>
+                  <clock_output id="MAIN_clock.outFreq" value="12 MHz" locked="false" accuracy=""/>
+                  <clock_output id="Slow_clock.outFreq" value="3 MHz" locked="false" accuracy=""/>
+                  <clock_output id="System_clock.outFreq" value="12 MHz" locked="false" accuracy=""/>
+                  <clock_output id="gdet_clock.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="trng_clock.outFreq" value="48 MHz" locked="false" accuracy=""/>
+               </clock_outputs>
+               <clock_settings>
+                  <setting id="SCGMode" value="SIRC" locked="false"/>
+                  <setting id="SCG.SCSSEL.sel" value="SCG.SIRC" locked="false"/>
+                  <setting id="SCG_FIRCCSR_FIRCEN_CFG" value="Disabled" locked="false"/>
+                  <setting id="SYSCON.FREQMEREFCLKSEL.sel" value="SYSCON.evtg_out0a" locked="false"/>
+                  <setting id="SYSCON.FREQMETARGETCLKSEL.sel" value="SYSCON.evtg_out0a" locked="false"/>
+               </clock_settings>
+               <called_from_default_init>false</called_from_default_init>
+            </clock_configuration>
+            <clock_configuration name="BOARD_BootClockFROHF48M" id_prefix="" prefix_user_defined="false">
+               <description></description>
+               <options/>
+               <dependencies>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.common" description="Clocks initialization requires the COMMON Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockFROHF48M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core1">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.common" description="Clocks initialization requires the COMMON Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockFROHF48M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core0">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.clock" description="Clocks initialization requires the CLOCK Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockFROHF48M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core1">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.clock" description="Clocks initialization requires the CLOCK Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockFROHF48M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core0">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.mcx_spc" description="Clocks initialization requires the MCX_SPC Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockFROHF48M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core1">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.mcx_spc" description="Clocks initialization requires the MCX_SPC Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockFROHF48M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core0">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+               </dependencies>
+               <clock_sources/>
+               <clock_outputs>
+                  <clock_output id="CLK_144M_clock.outFreq" value="144 MHz" locked="false" accuracy=""/>
+                  <clock_output id="CLK_48M_clock.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="FRO_12M_clock.outFreq" value="12 MHz" locked="false" accuracy=""/>
+                  <clock_output id="FRO_HF_clock.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="MAIN_clock.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="Slow_clock.outFreq" value="12 MHz" locked="false" accuracy=""/>
+                  <clock_output id="System_clock.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="gdet_clock.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="trng_clock.outFreq" value="48 MHz" locked="false" accuracy=""/>
+               </clock_outputs>
+               <clock_settings>
+                  <setting id="SYSCON.FLEXSPICLKSEL.sel" value="NO_CLOCK" locked="false"/>
+                  <setting id="SYSCON.FREQMEREFCLKSEL.sel" value="SYSCON.evtg_out0a" locked="false"/>
+                  <setting id="SYSCON.FREQMETARGETCLKSEL.sel" value="SYSCON.evtg_out0a" locked="false"/>
+               </clock_settings>
+               <called_from_default_init>false</called_from_default_init>
+            </clock_configuration>
+            <clock_configuration name="BOARD_BootClockFROHF144M" id_prefix="" prefix_user_defined="false">
+               <description></description>
+               <options/>
+               <dependencies>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.common" description="Clocks initialization requires the COMMON Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockFROHF144M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core1">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.common" description="Clocks initialization requires the COMMON Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockFROHF144M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core0">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.clock" description="Clocks initialization requires the CLOCK Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockFROHF144M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core1">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.clock" description="Clocks initialization requires the CLOCK Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockFROHF144M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core0">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.mcx_spc" description="Clocks initialization requires the MCX_SPC Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockFROHF144M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core1">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.mcx_spc" description="Clocks initialization requires the MCX_SPC Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockFROHF144M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core0">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+               </dependencies>
+               <clock_sources>
+                  <clock_source id="SCG.FIRC.outFreq" value="144 MHz" locked="false" enabled="false"/>
+               </clock_sources>
+               <clock_outputs>
+                  <clock_output id="CLK_144M_clock.outFreq" value="144 MHz" locked="false" accuracy=""/>
+                  <clock_output id="CLK_48M_clock.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="FRO_12M_clock.outFreq" value="12 MHz" locked="false" accuracy=""/>
+                  <clock_output id="FRO_HF_clock.outFreq" value="144 MHz" locked="false" accuracy=""/>
+                  <clock_output id="MAIN_clock.outFreq" value="144 MHz" locked="false" accuracy=""/>
+                  <clock_output id="Slow_clock.outFreq" value="36 MHz" locked="false" accuracy=""/>
+                  <clock_output id="System_clock.outFreq" value="144 MHz" locked="false" accuracy=""/>
+                  <clock_output id="gdet_clock.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="trng_clock.outFreq" value="48 MHz" locked="false" accuracy=""/>
+               </clock_outputs>
+               <clock_settings>
+                  <setting id="RunPowerMode" value="OD" locked="false"/>
+                  <setting id="SYSCON.AHBCLKDIV.scale" value="1" locked="true"/>
+                  <setting id="SYSCON.FLEXSPICLKSEL.sel" value="NO_CLOCK" locked="false"/>
+                  <setting id="SYSCON.FREQMEREFCLKSEL.sel" value="SYSCON.evtg_out0a" locked="false"/>
+                  <setting id="SYSCON.FREQMETARGETCLKSEL.sel" value="SYSCON.evtg_out0a" locked="false"/>
+               </clock_settings>
+               <called_from_default_init>false</called_from_default_init>
+            </clock_configuration>
+            <clock_configuration name="BOARD_BootClockPLL150M" id_prefix="" prefix_user_defined="false">
+               <description></description>
+               <options/>
+               <dependencies>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.common" description="Clocks initialization requires the COMMON Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockPLL150M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core1">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.common" description="Clocks initialization requires the COMMON Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockPLL150M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core0">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.clock" description="Clocks initialization requires the CLOCK Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockPLL150M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core1">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.clock" description="Clocks initialization requires the CLOCK Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockPLL150M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core0">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.mcx_spc" description="Clocks initialization requires the MCX_SPC Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockPLL150M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core1">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.mcx_spc" description="Clocks initialization requires the MCX_SPC Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockPLL150M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core0">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+               </dependencies>
+               <clock_sources/>
+               <clock_outputs>
+                  <clock_output id="CLK_144M_clock.outFreq" value="144 MHz" locked="false" accuracy=""/>
+                  <clock_output id="CLK_48M_clock.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="FLEXIO_clock.outFreq" value="150 MHz" locked="false" accuracy=""/>
+                  <clock_output id="FRO_12M_clock.outFreq" value="12 MHz" locked="false" accuracy=""/>
+                  <clock_output id="FRO_HF_clock.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="MAIN_clock.outFreq" value="150 MHz" locked="false" accuracy=""/>
+                  <clock_output id="PLL0_CLK_clock.outFreq" value="150 MHz" locked="false" accuracy=""/>
+                  <clock_output id="Slow_clock.outFreq" value="37.5 MHz" locked="false" accuracy=""/>
+                  <clock_output id="System_clock.outFreq" value="150 MHz" locked="false" accuracy=""/>
+                  <clock_output id="gdet_clock.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="trng_clock.outFreq" value="48 MHz" locked="false" accuracy=""/>
+               </clock_outputs>
+               <clock_settings>
+                  <setting id="PLL0_Mode" value="Normal" locked="false"/>
+                  <setting id="RunPowerMode" value="OD" locked="false"/>
+                  <setting id="SCGMode" value="PLL0" locked="false"/>
+                  <setting id="FLEXIOCLKDIV" value="Enable" locked="false"/>
+                  <setting id="SCG.PLL0M_MULT.scale" value="50" locked="true"/>
+                  <setting id="SCG.PLL0SRCSEL.sel" value="SCG.FIRC_48M" locked="false"/>
+                  <setting id="SCG.PLL0_NDIV.scale" value="8" locked="true"/>
+                  <setting id="SCG.SCSSEL.sel" value="SCG.PLL0_CLK" locked="false"/>
+                  <setting id="SYSCON.FLEXIOCLKSEL.sel" value="SCG.PLL0_CLK" locked="false"/>
+                  <setting id="SYSCON.FLEXSPICLKSEL.sel" value="NO_CLOCK" locked="false"/>
+                  <setting id="SYSCON.FREQMEREFCLKSEL.sel" value="SYSCON.evtg_out0a" locked="false"/>
+                  <setting id="SYSCON.FREQMETARGETCLKSEL.sel" value="SYSCON.evtg_out0a" locked="false"/>
+               </clock_settings>
+               <called_from_default_init>true</called_from_default_init>
+            </clock_configuration>
+            <clock_configuration name="BOARD_BootClockPLL100M" id_prefix="" prefix_user_defined="false">
+               <description></description>
+               <options/>
+               <dependencies>
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="SCG0.EXTAL" description="&apos;EXTAL&apos; (Pins tool id: SCG0.EXTAL, Clocks tool id: SCG.EXTAL) needs to be routed" problem_level="1" source="Clocks:BOARD_BootClockPLL100M">
+                     <feature name="routed" evaluation="">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="SCG0.EXTAL" description="&apos;EXTAL&apos; (Pins tool id: SCG0.EXTAL, Clocks tool id: SCG.EXTAL) needs to have &apos;INPUT&apos; direction" problem_level="1" source="Clocks:BOARD_BootClockPLL100M">
+                     <feature name="direction" evaluation="">
+                        <data>INPUT</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="SCG0.XTAL" description="&apos;XTAL&apos; (Pins tool id: SCG0.XTAL, Clocks tool id: SCG.XTAL) needs to be routed" problem_level="1" source="Clocks:BOARD_BootClockPLL100M">
+                     <feature name="routed" evaluation="">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="SCG0.XTAL" description="&apos;XTAL&apos; (Pins tool id: SCG0.XTAL, Clocks tool id: SCG.XTAL) needs to have &apos;OUTPUT&apos; direction" problem_level="1" source="Clocks:BOARD_BootClockPLL100M">
+                     <feature name="direction" evaluation="">
+                        <data>OUTPUT</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.common" description="Clocks initialization requires the COMMON Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockPLL100M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core1">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.common" description="Clocks initialization requires the COMMON Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockPLL100M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core0">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.clock" description="Clocks initialization requires the CLOCK Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockPLL100M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core1">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.clock" description="Clocks initialization requires the CLOCK Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockPLL100M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core0">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.mcx_spc" description="Clocks initialization requires the MCX_SPC Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockPLL100M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core1">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="SWComponent" resourceId="platform.drivers.mcx_spc" description="Clocks initialization requires the MCX_SPC Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockPLL100M">
+                     <feature name="enabled" evaluation="equal" configuration="cm33_core0">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+               </dependencies>
+               <clock_sources>
+                  <clock_source id="SCG.SOSC.outFreq" value="24 MHz" locked="false" enabled="true"/>
+               </clock_sources>
+               <clock_outputs>
+                  <clock_output id="CLK_144M_clock.outFreq" value="144 MHz" locked="false" accuracy=""/>
+                  <clock_output id="CLK_48M_clock.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="CLK_IN_clock.outFreq" value="24 MHz" locked="false" accuracy=""/>
+                  <clock_output id="FRO_12M_clock.outFreq" value="12 MHz" locked="false" accuracy=""/>
+                  <clock_output id="MAIN_clock.outFreq" value="100 MHz" locked="false" accuracy=""/>
+                  <clock_output id="PLL1_CLK_clock.outFreq" value="100 MHz" locked="false" accuracy=""/>
+                  <clock_output id="Slow_clock.outFreq" value="25 MHz" locked="false" accuracy=""/>
+                  <clock_output id="System_clock.outFreq" value="100 MHz" locked="false" accuracy=""/>
+                  <clock_output id="gdet_clock.outFreq" value="48 MHz" locked="false" accuracy=""/>
+                  <clock_output id="trng_clock.outFreq" value="48 MHz" locked="false" accuracy=""/>
+               </clock_outputs>
+               <clock_settings>
+                  <setting id="PLL1_Mode" value="Normal" locked="false"/>
+                  <setting id="RunPowerMode" value="SD" locked="false"/>
+                  <setting id="SCGMode" value="PLL1" locked="false"/>
+                  <setting id="SCG.PLL1M_MULT.scale" value="100" locked="true"/>
+                  <setting id="SCG.PLL1_NDIV.scale" value="6" locked="true"/>
+                  <setting id="SCG.PLL1_PDIV.scale" value="4" locked="true"/>
+                  <setting id="SCG.SCSSEL.sel" value="SCG.PLL1_CLK" locked="false"/>
+                  <setting id="SCG_FIRCCSR_FIRCEN_CFG" value="Disabled" locked="false"/>
+                  <setting id="SCG_SOSCCSR_ERFES_SEL" value="CryOsc" locked="false"/>
+                  <setting id="SCG_SOSCCSR_SOSCEN_CFG" value="Enabled" locked="false"/>
+                  <setting id="SYSCON.FREQMEREFCLKSEL.sel" value="SYSCON.evtg_out0a" locked="false"/>
+                  <setting id="SYSCON.FREQMETARGETCLKSEL.sel" value="SYSCON.evtg_out0a" locked="false"/>
+               </clock_settings>
+               <called_from_default_init>false</called_from_default_init>
+            </clock_configuration>
+         </clock_configurations>
+      </clocks>
+      <dcdx name="DCDx" version="3.0" enabled="false" update_project_code="true">
+         <generated_project_files/>
+         <dcdx_profile>
+            <processor_version>N/A</processor_version>
+         </dcdx_profile>
+         <dcdx_configurations/>
+      </dcdx>
+      <periphs name="Peripherals" version="15.0" enabled="true" update_project_code="true">
+         <dependencies>
+            <dependency resourceType="Tool" resourceId="Pins" description="The Pins tool is required by the Peripherals tool, but it is disabled." problem_level="2" source="Peripherals">
+               <feature name="enabled" evaluation="equal">
+                  <data>true</data>
+               </feature>
+            </dependency>
+            <dependency resourceType="Tool" resourceId="Clocks" description="The Clocks tool is required by the Peripherals tool, but it is disabled." problem_level="2" source="Peripherals">
+               <feature name="enabled" evaluation="equal">
+                  <data>true</data>
+               </feature>
+            </dependency>
+         </dependencies>
+         <generated_project_files>
+            <file path="board/peripherals.c" update_enabled="true"/>
+            <file path="board/peripherals.h" update_enabled="true"/>
+         </generated_project_files>
+         <peripherals_profile>
+            <processor_version>16.1.0</processor_version>
+         </peripherals_profile>
+         <functional_groups>
+            <functional_group name="BOARD_InitPeripherals" uuid="06463824-f3aa-40a8-9e9a-9ba355d40582" called_from_default_init="true" id_prefix="" core="cm33_core0">
+               <description></description>
+               <options/>
+               <dependencies>
+                  <dependency resourceType="ClockOutput" resourceId="FLEXIO_clock" description="FLEXIO_clock is inactive." problem_level="2" source="Peripherals:BOARD_InitPeripherals">
+                     <feature name="frequency" evaluation="greaterThan">
+                        <data type="Frequency" unit="Hz">0</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="ClockOutput" resourceId="System_clock" description="System_clock is inactive." problem_level="2" source="Peripherals:BOARD_InitPeripherals">
+                     <feature name="frequency" evaluation="greaterThan">
+                        <data type="Frequency" unit="Hz">0</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PinSignal" resourceId="FLEXIO0.D.0" description="Signal D.0 is not routed." problem_level="1" source="Peripherals:BOARD_InitPeripherals">
+                     <feature name="routed" evaluation="equal">
+                        <data type="Boolean">true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PinSignal" resourceId="FLEXIO0.D.1" description="Signal D.1 is not routed." problem_level="1" source="Peripherals:BOARD_InitPeripherals">
+                     <feature name="routed" evaluation="equal">
+                        <data type="Boolean">true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PinSignal" resourceId="FLEXIO0.D.16" description="Signal D.16 is not routed." problem_level="1" source="Peripherals:BOARD_InitPeripherals">
+                     <feature name="routed" evaluation="equal">
+                        <data type="Boolean">true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PinSignal" resourceId="FLEXIO0.D.17" description="Signal D.17 is not routed." problem_level="1" source="Peripherals:BOARD_InitPeripherals">
+                     <feature name="routed" evaluation="equal">
+                        <data type="Boolean">true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PinSignal" resourceId="FLEXIO0.D.18" description="Signal D.18 is not routed." problem_level="1" source="Peripherals:BOARD_InitPeripherals">
+                     <feature name="routed" evaluation="equal">
+                        <data type="Boolean">true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PinSignal" resourceId="FLEXIO0.D.24" description="Signal D.24 is not routed." problem_level="1" source="Peripherals:BOARD_InitPeripherals">
+                     <feature name="routed" evaluation="equal">
+                        <data type="Boolean">true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PinSignal" resourceId="FLEXIO0.D.25" description="Signal D.25 is not routed." problem_level="1" source="Peripherals:BOARD_InitPeripherals">
+                     <feature name="routed" evaluation="equal">
+                        <data type="Boolean">true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PinSignal" resourceId="FLEXIO0.D.26" description="Signal D.26 is not routed." problem_level="1" source="Peripherals:BOARD_InitPeripherals">
+                     <feature name="routed" evaluation="equal">
+                        <data type="Boolean">true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PinSignal" resourceId="FLEXIO0.D.27" description="Signal D.27 is not routed." problem_level="1" source="Peripherals:BOARD_InitPeripherals">
+                     <feature name="routed" evaluation="equal">
+                        <data type="Boolean">true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PinSignal" resourceId="FLEXIO0.D.28" description="Signal D.28 is not routed." problem_level="1" source="Peripherals:BOARD_InitPeripherals">
+                     <feature name="routed" evaluation="equal">
+                        <data type="Boolean">true</data>
+                     </feature>
+                  </dependency>
+               </dependencies>
+               <instances>
+                  <instance name="NVIC" uuid="7986deaf-6a3e-47ad-94dc-283644a6f309" type="nvic" type_id="nvic" mode="general" peripheral="NVIC" enabled="true" comment="" custom_name_enabled="false" editing_lock="false">
+                     <config_set name="nvic">
+                        <array name="interrupt_table"/>
+                        <array name="interrupts"/>
+                     </config_set>
+                  </instance>
+                  <instance name="FLEXIO0" uuid="24a9cf38-2860-4af5-b541-b3f89fe2d41f" type="flexio_reg" type_id="flexio_reg" mode="general" peripheral="FLEXIO0" enabled="true" comment="" custom_name_enabled="false" editing_lock="false">
+                     <config_set name="generalConfig">
+                        <struct name="clkConfig">
+                           <setting name="clockSource" value="FlexIoClock"/>
+                           <setting name="clockSourceFreq" value="ClocksTool_DefaultInit"/>
+                        </struct>
+                        <struct name="flexioConfig">
+                           <setting name="FLEXEN" value="true"/>
+                           <setting name="FASTACC" value="false"/>
+                           <setting name="DBGE" value="true"/>
+                           <setting name="DOZEN" value="true"/>
+                           <setting name="STATE" value="1721113475092"/>
+                        </struct>
+                        <struct name="tabs">
+                           <struct name="timers_tab">
+                              <array name="timers">
+                                 <struct name="0">
+                                    <setting name="uid" value="1721113475085"/>
+                                    <setting name="id" value="TIMER0"/>
+                                    <setting name="number" value="0"/>
+                                    <setting name="description" value=""/>
+                                    <setting name="TIMOD" value="3"/>
+                                    <setting name="ONETIM" value="0"/>
+                                    <setting name="TSTART" value="0"/>
+                                    <setting name="TSTOP" value="0"/>
+                                    <setting name="TRGSRC" value="1TIMER"/>
+                                    <setting name="TRGSEL" value="1721113475070"/>
+                                    <setting name="TRGPOL" value="0"/>
+                                    <setting name="PINSEL" value="24"/>
+                                    <setting name="PINCFG" value="3"/>
+                                    <setting name="PINPOL" value="0"/>
+                                    <setting name="PININS" value="0"/>
+                                    <setting name="TIMENA" value="6"/>
+                                    <setting name="TIMDIS" value="6"/>
+                                    <setting name="TIMRST" value="0"/>
+                                    <setting name="TIMOUT" value="1"/>
+                                    <setting name="TIMDEC" value="0"/>
+                                    <setting name="timerClockFreqCustomStr" value=""/>
+                                    <setting name="CMPVal16BitStr" value="49"/>
+                                    <setting name="TEIE" value="false"/>
+                                    <setting name="TSDE" value="false"/>
+                                    <struct name="params"/>
+                                 </struct>
+                                 <struct name="1">
+                                    <setting name="uid" value="1721113475066"/>
+                                    <setting name="id" value="TIMER1"/>
+                                    <setting name="number" value="1"/>
+                                    <setting name="description" value=""/>
+                                    <setting name="TIMOD" value="3"/>
+                                    <setting name="ONETIM" value="0"/>
+                                    <setting name="TSTART" value="0"/>
+                                    <setting name="TSTOP" value="0"/>
+                                    <setting name="TRGSRC" value="1PIN"/>
+                                    <setting name="TRGSEL" value="1"/>
+                                    <setting name="TRGPOL" value="1"/>
+                                    <setting name="PINSEL" value="25"/>
+                                    <setting name="PINCFG" value="3"/>
+                                    <setting name="PINPOL" value="0"/>
+                                    <setting name="PININS" value="0"/>
+                                    <setting name="TIMENA" value="6"/>
+                                    <setting name="TIMDIS" value="6"/>
+                                    <setting name="TIMRST" value="0"/>
+                                    <setting name="TIMOUT" value="1"/>
+                                    <setting name="TIMDEC" value="0"/>
+                                    <setting name="timerClockFreqCustomStr" value=""/>
+                                    <setting name="CMPVal16BitStr" value="4"/>
+                                    <setting name="TEIE" value="false"/>
+                                    <setting name="TSDE" value="false"/>
+                                    <struct name="params"/>
+                                 </struct>
+                                 <struct name="2">
+                                    <setting name="uid" value="1721113475067"/>
+                                    <setting name="id" value="TIMER2"/>
+                                    <setting name="number" value="2"/>
+                                    <setting name="description" value=""/>
+                                    <setting name="TIMOD" value="3"/>
+                                    <setting name="ONETIM" value="0"/>
+                                    <setting name="TSTART" value="0"/>
+                                    <setting name="TSTOP" value="0"/>
+                                    <setting name="TRGSRC" value="1TIMER"/>
+                                    <setting name="TRGSEL" value="1721113475070"/>
+                                    <setting name="TRGPOL" value="1"/>
+                                    <setting name="PINSEL" value="26"/>
+                                    <setting name="PINCFG" value="3"/>
+                                    <setting name="PINPOL" value="0"/>
+                                    <setting name="PININS" value="0"/>
+                                    <setting name="TIMENA" value="6"/>
+                                    <setting name="TIMDIS" value="6"/>
+                                    <setting name="TIMRST" value="0"/>
+                                    <setting name="TIMOUT" value="1"/>
+                                    <setting name="TIMDEC" value="0"/>
+                                    <setting name="timerClockFreqCustomStr" value=""/>
+                                    <setting name="CMPVal16BitStr" value="149"/>
+                                    <setting name="TEIE" value="false"/>
+                                    <setting name="TSDE" value="false"/>
+                                    <struct name="params"/>
+                                 </struct>
+                                 <struct name="3">
+                                    <setting name="uid" value="1721113475069"/>
+                                    <setting name="id" value="TIMER3"/>
+                                    <setting name="number" value="3"/>
+                                    <setting name="description" value=""/>
+                                    <setting name="TIMOD" value="3"/>
+                                    <setting name="ONETIM" value="0"/>
+                                    <setting name="TSTART" value="0"/>
+                                    <setting name="TSTOP" value="0"/>
+                                    <setting name="TRGSRC" value="1PIN"/>
+                                    <setting name="TRGSEL" value="0"/>
+                                    <setting name="TRGPOL" value="1"/>
+                                    <setting name="PINSEL" value="27"/>
+                                    <setting name="PINCFG" value="3"/>
+                                    <setting name="PINPOL" value="0"/>
+                                    <setting name="PININS" value="0"/>
+                                    <setting name="TIMENA" value="6"/>
+                                    <setting name="TIMDIS" value="6"/>
+                                    <setting name="TIMRST" value="0"/>
+                                    <setting name="TIMOUT" value="1"/>
+                                    <setting name="TIMDEC" value="0"/>
+                                    <setting name="timerClockFreqCustomStr" value=""/>
+                                    <setting name="CMPVal16BitStr" value="4"/>
+                                    <setting name="TEIE" value="false"/>
+                                    <setting name="TSDE" value="false"/>
+                                    <struct name="params"/>
+                                 </struct>
+                                 <struct name="4">
+                                    <setting name="uid" value="1721113475070"/>
+                                    <setting name="id" value="TIMER4"/>
+                                    <setting name="number" value="4"/>
+                                    <setting name="description" value=""/>
+                                    <setting name="TIMOD" value="3"/>
+                                    <setting name="ONETIM" value="0"/>
+                                    <setting name="TSTART" value="0"/>
+                                    <setting name="TSTOP" value="0"/>
+                                    <setting name="TRGSRC" value="0"/>
+                                    <setting name="TRGSEL" value="0"/>
+                                    <setting name="TRGPOL" value="0"/>
+                                    <setting name="PINSEL" value="28"/>
+                                    <setting name="PINCFG" value="3"/>
+                                    <setting name="PINPOL" value="0"/>
+                                    <setting name="PININS" value="0"/>
+                                    <setting name="TIMENA" value="0"/>
+                                    <setting name="TIMDIS" value="0"/>
+                                    <setting name="TIMRST" value="0"/>
+                                    <setting name="TIMOUT" value="0"/>
+                                    <setting name="TIMDEC" value="0"/>
+                                    <setting name="timerClockFreqCustomStr" value=""/>
+                                    <setting name="CMPVal16BitStr" value="199"/>
+                                    <setting name="TEIE" value="false"/>
+                                    <setting name="TSDE" value="false"/>
+                                    <struct name="params"/>
+                                 </struct>
+                              </array>
+                           </struct>
+                           <struct name="shifters_tab">
+                              <array name="shifters">
+                                 <struct name="0">
+                                    <setting name="uid" value="1721113475092"/>
+                                    <setting name="id" value="SHIFTER0"/>
+                                    <setting name="number" value="0"/>
+                                    <setting name="description" value="S0"/>
+                                    <setting name="SMOD" value="6"/>
+                                    <setting name="SSIZE" value="0"/>
+                                    <setting name="LATST" value="0"/>
+                                    <setting name="TIMSEL" value="1721113475085"/>
+                                    <setting name="TIMPOL" value="0"/>
+                                    <setting name="INSRC" value="0"/>
+                                    <setting name="PINSEL" value="16"/>
+                                    <setting name="PINCFG" value="3"/>
+                                    <setting name="PINPOL" value="0"/>
+                                    <array name="statesShifter">
+                                       <struct name="0">
+                                          <setting name="shifterStateSel_t" value="1721113475077"/>
+                                       </struct>
+                                       <struct name="1">
+                                          <setting name="shifterStateSel_t" value="1721113475092"/>
+                                       </struct>
+                                       <struct name="2">
+                                          <setting name="shifterStateSel_t" value="1721113475092"/>
+                                       </struct>
+                                       <struct name="3">
+                                          <setting name="shifterStateSel_t" value="1721113475092"/>
+                                       </struct>
+                                       <struct name="4">
+                                          <setting name="shifterStateSel_t" value="1721113475092"/>
+                                       </struct>
+                                       <struct name="5">
+                                          <setting name="shifterStateSel_t" value="1721113475092"/>
+                                       </struct>
+                                       <struct name="6">
+                                          <setting name="shifterStateSel_t" value="1721113475092"/>
+                                       </struct>
+                                       <struct name="7">
+                                          <setting name="shifterStateSel_t" value="1721113475092"/>
+                                       </struct>
+                                    </array>
+                                    <array name="pinOutputStateMask">
+                                       <struct name="0">
+                                          <setting name="pinMask_t" value="0"/>
+                                          <setting name="outputState" value="0"/>
+                                       </struct>
+                                       <struct name="1">
+                                          <setting name="pinMask_t" value="0"/>
+                                          <setting name="outputState" value="1"/>
+                                       </struct>
+                                       <struct name="2">
+                                          <setting name="pinMask_t" value="1"/>
+                                          <setting name="outputState" value="0"/>
+                                       </struct>
+                                       <struct name="3">
+                                          <setting name="pinMask_t" value="1"/>
+                                          <setting name="outputState" value="0"/>
+                                       </struct>
+                                       <struct name="4">
+                                          <setting name="pinMask_t" value="1"/>
+                                          <setting name="outputState" value="0"/>
+                                       </struct>
+                                       <struct name="5">
+                                          <setting name="pinMask_t" value="1"/>
+                                          <setting name="outputState" value="0"/>
+                                       </struct>
+                                       <struct name="6">
+                                          <setting name="pinMask_t" value="1"/>
+                                          <setting name="outputState" value="0"/>
+                                       </struct>
+                                       <struct name="7">
+                                          <setting name="pinMask_t" value="1"/>
+                                          <setting name="outputState" value="0"/>
+                                       </struct>
+                                    </array>
+                                    <setting name="SSIE" value="false"/>
+                                    <setting name="SEIE" value="false"/>
+                                    <setting name="SSDE" value="false"/>
+                                    <struct name="params"/>
+                                 </struct>
+                                 <struct name="1">
+                                    <setting name="uid" value="1721113475077"/>
+                                    <setting name="id" value="SHIFTER1"/>
+                                    <setting name="number" value="1"/>
+                                    <setting name="description" value="S1"/>
+                                    <setting name="SMOD" value="6"/>
+                                    <setting name="SSIZE" value="0"/>
+                                    <setting name="LATST" value="0"/>
+                                    <setting name="TIMSEL" value="1721113475066"/>
+                                    <setting name="TIMPOL" value="0"/>
+                                    <setting name="INSRC" value="0"/>
+                                    <setting name="PINSEL" value="16"/>
+                                    <setting name="PINCFG" value="3"/>
+                                    <setting name="PINPOL" value="0"/>
+                                    <array name="statesShifter">
+                                       <struct name="0">
+                                          <setting name="shifterStateSel_t" value="1721113475081"/>
+                                       </struct>
+                                       <struct name="1">
+                                          <setting name="shifterStateSel_t" value="1721113475092"/>
+                                       </struct>
+                                       <struct name="2">
+                                          <setting name="shifterStateSel_t" value="1721113475092"/>
+                                       </struct>
+                                       <struct name="3">
+                                          <setting name="shifterStateSel_t" value="1721113475092"/>
+                                       </struct>
+                                       <struct name="4">
+                                          <setting name="shifterStateSel_t" value="1721113475092"/>
+                                       </struct>
+                                       <struct name="5">
+                                          <setting name="shifterStateSel_t" value="1721113475092"/>
+                                       </struct>
+                                       <struct name="6">
+                                          <setting name="shifterStateSel_t" value="1721113475092"/>
+                                       </struct>
+                                       <struct name="7">
+                                          <setting name="shifterStateSel_t" value="1721113475092"/>
+                                       </struct>
+                                    </array>
+                                    <array name="pinOutputStateMask">
+                                       <struct name="0">
+                                          <setting name="pinMask_t" value="0"/>
+                                          <setting name="outputState" value="0"/>
+                                       </struct>
+                                       <struct name="1">
+                                          <setting name="pinMask_t" value="0"/>
+                                          <setting name="outputState" value="0"/>
+                                       </struct>
+                                       <struct name="2">
+                                          <setting name="pinMask_t" value="1"/>
+                                          <setting name="outputState" value="0"/>
+                                       </struct>
+                                       <struct name="3">
+                                          <setting name="pinMask_t" value="1"/>
+                                          <setting name="outputState" value="0"/>
+                                       </struct>
+                                       <struct name="4">
+                                          <setting name="pinMask_t" value="1"/>
+                                          <setting name="outputState" value="0"/>
+                                       </struct>
+                                       <struct name="5">
+                                          <setting name="pinMask_t" value="1"/>
+                                          <setting name="outputState" value="0"/>
+                                       </struct>
+                                       <struct name="6">
+                                          <setting name="pinMask_t" value="1"/>
+                                          <setting name="outputState" value="0"/>
+                                       </struct>
+                                       <struct name="7">
+                                          <setting name="pinMask_t" value="1"/>
+                                          <setting name="outputState" value="0"/>
+                                       </struct>
+                                    </array>
+                                    <setting name="SSIE" value="false"/>
+                                    <setting name="SEIE" value="false"/>
+                                    <setting name="SSDE" value="false"/>
+                                    <struct name="params"/>
+                                 </struct>
+                                 <struct name="2">
+                                    <setting name="uid" value="1721113475081"/>
+                                    <setting name="id" value="SHIFTER2"/>
+                                    <setting name="number" value="2"/>
+                                    <setting name="description" value="S2"/>
+                                    <setting name="SMOD" value="6"/>
+                                    <setting name="SSIZE" value="0"/>
+                                    <setting name="LATST" value="0"/>
+                                    <setting name="TIMSEL" value="1721113475067"/>
+                                    <setting name="TIMPOL" value="0"/>
+                                    <setting name="INSRC" value="0"/>
+                                    <setting name="PINSEL" value="16"/>
+                                    <setting name="PINCFG" value="3"/>
+                                    <setting name="PINPOL" value="0"/>
+                                    <array name="statesShifter">
+                                       <struct name="0">
+                                          <setting name="shifterStateSel_t" value="1721113475091"/>
+                                       </struct>
+                                       <struct name="1">
+                                          <setting name="shifterStateSel_t" value="1721113475092"/>
+                                       </struct>
+                                       <struct name="2">
+                                          <setting name="shifterStateSel_t" value="1721113475092"/>
+                                       </struct>
+                                       <struct name="3">
+                                          <setting name="shifterStateSel_t" value="1721113475092"/>
+                                       </struct>
+                                       <struct name="4">
+                                          <setting name="shifterStateSel_t" value="1721113475092"/>
+                                       </struct>
+                                       <struct name="5">
+                                          <setting name="shifterStateSel_t" value="1721113475092"/>
+                                       </struct>
+                                       <struct name="6">
+                                          <setting name="shifterStateSel_t" value="1721113475092"/>
+                                       </struct>
+                                       <struct name="7">
+                                          <setting name="shifterStateSel_t" value="1721113475092"/>
+                                       </struct>
+                                    </array>
+                                    <array name="pinOutputStateMask">
+                                       <struct name="0">
+                                          <setting name="pinMask_t" value="0"/>
+                                          <setting name="outputState" value="1"/>
+                                       </struct>
+                                       <struct name="1">
+                                          <setting name="pinMask_t" value="0"/>
+                                          <setting name="outputState" value="0"/>
+                                       </struct>
+                                       <struct name="2">
+                                          <setting name="pinMask_t" value="1"/>
+                                          <setting name="outputState" value="0"/>
+                                       </struct>
+                                       <struct name="3">
+                                          <setting name="pinMask_t" value="1"/>
+                                          <setting name="outputState" value="0"/>
+                                       </struct>
+                                       <struct name="4">
+                                          <setting name="pinMask_t" value="1"/>
+                                          <setting name="outputState" value="0"/>
+                                       </struct>
+                                       <struct name="5">
+                                          <setting name="pinMask_t" value="1"/>
+                                          <setting name="outputState" value="0"/>
+                                       </struct>
+                                       <struct name="6">
+                                          <setting name="pinMask_t" value="1"/>
+                                          <setting name="outputState" value="0"/>
+                                       </struct>
+                                       <struct name="7">
+                                          <setting name="pinMask_t" value="1"/>
+                                          <setting name="outputState" value="0"/>
+                                       </struct>
+                                    </array>
+                                    <setting name="SSIE" value="false"/>
+                                    <setting name="SEIE" value="false"/>
+                                    <setting name="SSDE" value="false"/>
+                                    <struct name="params"/>
+                                 </struct>
+                                 <struct name="3">
+                                    <setting name="uid" value="1721113475091"/>
+                                    <setting name="id" value="SHIFTER3"/>
+                                    <setting name="number" value="3"/>
+                                    <setting name="description" value="SL_0"/>
+                                    <setting name="SMOD" value="6"/>
+                                    <setting name="SSIZE" value="0"/>
+                                    <setting name="LATST" value="0"/>
+                                    <setting name="TIMSEL" value="1721113475069"/>
+                                    <setting name="TIMPOL" value="0"/>
+                                    <setting name="INSRC" value="0"/>
+                                    <setting name="PINSEL" value="16"/>
+                                    <setting name="PINCFG" value="3"/>
+                                    <setting name="PINPOL" value="0"/>
+                                    <array name="statesShifter">
+                                       <struct name="0">
+                                          <setting name="shifterStateSel_t" value="1721113475087"/>
+                                       </struct>
+                                       <struct name="1">
+                                          <setting name="shifterStateSel_t" value="1721113475092"/>
+                                       </struct>
+                                       <struct name="2">
+                                          <setting name="shifterStateSel_t" value="1721113475092"/>
+                                       </struct>
+                                       <struct name="3">
+                                          <setting name="shifterStateSel_t" value="1721113475092"/>
+                                       </struct>
+                                       <struct name="4">
+                                          <setting name="shifterStateSel_t" value="1721113475092"/>
+                                       </struct>
+                                       <struct name="5">
+                                          <setting name="shifterStateSel_t" value="1721113475092"/>
+                                       </struct>
+                                       <struct name="6">
+                                          <setting name="shifterStateSel_t" value="1721113475092"/>
+                                       </struct>
+                                       <struct name="7">
+                                          <setting name="shifterStateSel_t" value="1721113475092"/>
+                                       </struct>
+                                    </array>
+                                    <array name="pinOutputStateMask">
+                                       <struct name="0">
+                                          <setting name="pinMask_t" value="0"/>
+                                          <setting name="outputState" value="0"/>
+                                       </struct>
+                                       <struct name="1">
+                                          <setting name="pinMask_t" value="0"/>
+                                          <setting name="outputState" value="0"/>
+                                       </struct>
+                                       <struct name="2">
+                                          <setting name="pinMask_t" value="1"/>
+                                          <setting name="outputState" value="0"/>
+                                       </struct>
+                                       <struct name="3">
+                                          <setting name="pinMask_t" value="1"/>
+                                          <setting name="outputState" value="0"/>
+                                       </struct>
+                                       <struct name="4">
+                                          <setting name="pinMask_t" value="1"/>
+                                          <setting name="outputState" value="0"/>
+                                       </struct>
+                                       <struct name="5">
+                                          <setting name="pinMask_t" value="1"/>
+                                          <setting name="outputState" value="0"/>
+                                       </struct>
+                                       <struct name="6">
+                                          <setting name="pinMask_t" value="1"/>
+                                          <setting name="outputState" value="0"/>
+                                       </struct>
+                                       <struct name="7">
+                                          <setting name="pinMask_t" value="1"/>
+                                          <setting name="outputState" value="0"/>
+                                       </struct>
+                                    </array>
+                                    <setting name="SSIE" value="false"/>
+                                    <setting name="SEIE" value="false"/>
+                                    <setting name="SSDE" value="false"/>
+                                    <struct name="params"/>
+                                 </struct>
+                                 <struct name="4">
+                                    <setting name="uid" value="1721113475087"/>
+                                    <setting name="id" value="SHIFTER4"/>
+                                    <setting name="number" value="4"/>
+                                    <setting name="description" value="S4"/>
+                                    <setting name="SMOD" value="6"/>
+                                    <setting name="SSIZE" value="0"/>
+                                    <setting name="LATST" value="0"/>
+                                    <setting name="TIMSEL" value="1721113475070"/>
+                                    <setting name="TIMPOL" value="0"/>
+                                    <setting name="INSRC" value="0"/>
+                                    <setting name="PINSEL" value="16"/>
+                                    <setting name="PINCFG" value="3"/>
+                                    <setting name="PINPOL" value="0"/>
+                                    <array name="statesShifter">
+                                       <struct name="0">
+                                          <setting name="shifterStateSel_t" value="1721113475092"/>
+                                       </struct>
+                                       <struct name="1">
+                                          <setting name="shifterStateSel_t" value="1721113475092"/>
+                                       </struct>
+                                       <struct name="2">
+                                          <setting name="shifterStateSel_t" value="1721113475092"/>
+                                       </struct>
+                                       <struct name="3">
+                                          <setting name="shifterStateSel_t" value="1721113475092"/>
+                                       </struct>
+                                       <struct name="4">
+                                          <setting name="shifterStateSel_t" value="1721113475092"/>
+                                       </struct>
+                                       <struct name="5">
+                                          <setting name="shifterStateSel_t" value="1721113475092"/>
+                                       </struct>
+                                       <struct name="6">
+                                          <setting name="shifterStateSel_t" value="1721113475092"/>
+                                       </struct>
+                                       <struct name="7">
+                                          <setting name="shifterStateSel_t" value="1721113475092"/>
+                                       </struct>
+                                    </array>
+                                    <array name="pinOutputStateMask">
+                                       <struct name="0">
+                                          <setting name="pinMask_t" value="0"/>
+                                          <setting name="outputState" value="0"/>
+                                       </struct>
+                                       <struct name="1">
+                                          <setting name="pinMask_t" value="0"/>
+                                          <setting name="outputState" value="1"/>
+                                       </struct>
+                                       <struct name="2">
+                                          <setting name="pinMask_t" value="1"/>
+                                          <setting name="outputState" value="0"/>
+                                       </struct>
+                                       <struct name="3">
+                                          <setting name="pinMask_t" value="1"/>
+                                          <setting name="outputState" value="0"/>
+                                       </struct>
+                                       <struct name="4">
+                                          <setting name="pinMask_t" value="1"/>
+                                          <setting name="outputState" value="0"/>
+                                       </struct>
+                                       <struct name="5">
+                                          <setting name="pinMask_t" value="1"/>
+                                          <setting name="outputState" value="0"/>
+                                       </struct>
+                                       <struct name="6">
+                                          <setting name="pinMask_t" value="1"/>
+                                          <setting name="outputState" value="0"/>
+                                       </struct>
+                                       <struct name="7">
+                                          <setting name="pinMask_t" value="1"/>
+                                          <setting name="outputState" value="0"/>
+                                       </struct>
+                                    </array>
+                                    <setting name="SSIE" value="false"/>
+                                    <setting name="SEIE" value="false"/>
+                                    <setting name="SSDE" value="false"/>
+                                    <struct name="params"/>
+                                 </struct>
+                              </array>
+                           </struct>
+                           <array name="pins_overview">
+                              <struct name="0">
+                                 <setting name="PSIE" value="false"/>
+                                 <setting name="PRE" value="false"/>
+                                 <setting name="PFE" value="false"/>
+                                 <setting name="OUTE" value="false"/>
+                                 <setting name="OUTD" value="0"/>
+                              </struct>
+                              <struct name="1">
+                                 <setting name="PSIE" value="false"/>
+                                 <setting name="PRE" value="false"/>
+                                 <setting name="PFE" value="false"/>
+                                 <setting name="OUTE" value="false"/>
+                                 <setting name="OUTD" value="0"/>
+                              </struct>
+                              <struct name="2">
+                                 <setting name="PSIE" value="false"/>
+                                 <setting name="PRE" value="false"/>
+                                 <setting name="PFE" value="false"/>
+                                 <setting name="OUTE" value="false"/>
+                                 <setting name="OUTD" value="0"/>
+                              </struct>
+                              <struct name="3">
+                                 <setting name="PSIE" value="false"/>
+                                 <setting name="PRE" value="false"/>
+                                 <setting name="PFE" value="false"/>
+                                 <setting name="OUTE" value="false"/>
+                                 <setting name="OUTD" value="0"/>
+                              </struct>
+                              <struct name="4">
+                                 <setting name="PSIE" value="false"/>
+                                 <setting name="PRE" value="false"/>
+                                 <setting name="PFE" value="false"/>
+                                 <setting name="OUTE" value="false"/>
+                                 <setting name="OUTD" value="0"/>
+                              </struct>
+                              <struct name="5">
+                                 <setting name="PSIE" value="false"/>
+                                 <setting name="PRE" value="false"/>
+                                 <setting name="PFE" value="false"/>
+                                 <setting name="OUTE" value="false"/>
+                                 <setting name="OUTD" value="0"/>
+                              </struct>
+                              <struct name="6">
+                                 <setting name="PSIE" value="false"/>
+                                 <setting name="PRE" value="false"/>
+                                 <setting name="PFE" value="false"/>
+                                 <setting name="OUTE" value="false"/>
+                                 <setting name="OUTD" value="0"/>
+                              </struct>
+                              <struct name="7">
+                                 <setting name="PSIE" value="false"/>
+                                 <setting name="PRE" value="false"/>
+                                 <setting name="PFE" value="false"/>
+                                 <setting name="OUTE" value="false"/>
+                                 <setting name="OUTD" value="0"/>
+                              </struct>
+                              <struct name="8">
+                                 <setting name="PSIE" value="false"/>
+                                 <setting name="PRE" value="false"/>
+                                 <setting name="PFE" value="false"/>
+                                 <setting name="OUTE" value="false"/>
+                                 <setting name="OUTD" value="0"/>
+                              </struct>
+                              <struct name="9">
+                                 <setting name="PSIE" value="false"/>
+                                 <setting name="PRE" value="false"/>
+                                 <setting name="PFE" value="false"/>
+                                 <setting name="OUTE" value="false"/>
+                                 <setting name="OUTD" value="0"/>
+                              </struct>
+                              <struct name="10">
+                                 <setting name="PSIE" value="false"/>
+                                 <setting name="PRE" value="false"/>
+                                 <setting name="PFE" value="false"/>
+                                 <setting name="OUTE" value="false"/>
+                                 <setting name="OUTD" value="0"/>
+                              </struct>
+                              <struct name="11">
+                                 <setting name="PSIE" value="false"/>
+                                 <setting name="PRE" value="false"/>
+                                 <setting name="PFE" value="false"/>
+                                 <setting name="OUTE" value="false"/>
+                                 <setting name="OUTD" value="0"/>
+                              </struct>
+                              <struct name="12">
+                                 <setting name="PSIE" value="false"/>
+                                 <setting name="PRE" value="false"/>
+                                 <setting name="PFE" value="false"/>
+                                 <setting name="OUTE" value="false"/>
+                                 <setting name="OUTD" value="0"/>
+                              </struct>
+                              <struct name="13">
+                                 <setting name="PSIE" value="false"/>
+                                 <setting name="PRE" value="false"/>
+                                 <setting name="PFE" value="false"/>
+                                 <setting name="OUTE" value="false"/>
+                                 <setting name="OUTD" value="0"/>
+                              </struct>
+                              <struct name="14">
+                                 <setting name="PSIE" value="false"/>
+                                 <setting name="PRE" value="false"/>
+                                 <setting name="PFE" value="false"/>
+                                 <setting name="OUTE" value="false"/>
+                                 <setting name="OUTD" value="0"/>
+                              </struct>
+                              <struct name="15">
+                                 <setting name="PSIE" value="false"/>
+                                 <setting name="PRE" value="false"/>
+                                 <setting name="PFE" value="false"/>
+                                 <setting name="OUTE" value="false"/>
+                                 <setting name="OUTD" value="0"/>
+                              </struct>
+                              <struct name="16">
+                                 <setting name="PSIE" value="false"/>
+                                 <setting name="PRE" value="false"/>
+                                 <setting name="PFE" value="false"/>
+                                 <setting name="OUTE" value="false"/>
+                                 <setting name="OUTD" value="0"/>
+                              </struct>
+                              <struct name="17">
+                                 <setting name="PSIE" value="false"/>
+                                 <setting name="PRE" value="false"/>
+                                 <setting name="PFE" value="false"/>
+                                 <setting name="OUTE" value="false"/>
+                                 <setting name="OUTD" value="0"/>
+                              </struct>
+                              <struct name="18">
+                                 <setting name="PSIE" value="false"/>
+                                 <setting name="PRE" value="false"/>
+                                 <setting name="PFE" value="false"/>
+                                 <setting name="OUTE" value="false"/>
+                                 <setting name="OUTD" value="0"/>
+                              </struct>
+                              <struct name="19">
+                                 <setting name="PSIE" value="false"/>
+                                 <setting name="PRE" value="false"/>
+                                 <setting name="PFE" value="false"/>
+                                 <setting name="OUTE" value="false"/>
+                                 <setting name="OUTD" value="0"/>
+                              </struct>
+                              <struct name="20">
+                                 <setting name="PSIE" value="false"/>
+                                 <setting name="PRE" value="false"/>
+                                 <setting name="PFE" value="false"/>
+                                 <setting name="OUTE" value="false"/>
+                                 <setting name="OUTD" value="0"/>
+                              </struct>
+                              <struct name="21">
+                                 <setting name="PSIE" value="false"/>
+                                 <setting name="PRE" value="false"/>
+                                 <setting name="PFE" value="false"/>
+                                 <setting name="OUTE" value="false"/>
+                                 <setting name="OUTD" value="0"/>
+                              </struct>
+                              <struct name="22">
+                                 <setting name="PSIE" value="false"/>
+                                 <setting name="PRE" value="false"/>
+                                 <setting name="PFE" value="false"/>
+                                 <setting name="OUTE" value="false"/>
+                                 <setting name="OUTD" value="0"/>
+                              </struct>
+                              <struct name="23">
+                                 <setting name="PSIE" value="false"/>
+                                 <setting name="PRE" value="false"/>
+                                 <setting name="PFE" value="false"/>
+                                 <setting name="OUTE" value="false"/>
+                                 <setting name="OUTD" value="0"/>
+                              </struct>
+                              <struct name="24">
+                                 <setting name="PSIE" value="false"/>
+                                 <setting name="PRE" value="false"/>
+                                 <setting name="PFE" value="false"/>
+                                 <setting name="OUTE" value="false"/>
+                                 <setting name="OUTD" value="0"/>
+                              </struct>
+                              <struct name="25">
+                                 <setting name="PSIE" value="false"/>
+                                 <setting name="PRE" value="false"/>
+                                 <setting name="PFE" value="false"/>
+                                 <setting name="OUTE" value="false"/>
+                                 <setting name="OUTD" value="0"/>
+                              </struct>
+                              <struct name="26">
+                                 <setting name="PSIE" value="false"/>
+                                 <setting name="PRE" value="false"/>
+                                 <setting name="PFE" value="false"/>
+                                 <setting name="OUTE" value="false"/>
+                                 <setting name="OUTD" value="0"/>
+                              </struct>
+                              <struct name="27">
+                                 <setting name="PSIE" value="false"/>
+                                 <setting name="PRE" value="false"/>
+                                 <setting name="PFE" value="false"/>
+                                 <setting name="OUTE" value="false"/>
+                                 <setting name="OUTD" value="0"/>
+                              </struct>
+                              <struct name="28">
+                                 <setting name="PSIE" value="false"/>
+                                 <setting name="PRE" value="false"/>
+                                 <setting name="PFE" value="false"/>
+                                 <setting name="OUTE" value="false"/>
+                                 <setting name="OUTD" value="0"/>
+                              </struct>
+                              <struct name="29">
+                                 <setting name="PSIE" value="false"/>
+                                 <setting name="PRE" value="false"/>
+                                 <setting name="PFE" value="false"/>
+                                 <setting name="OUTE" value="false"/>
+                                 <setting name="OUTD" value="0"/>
+                              </struct>
+                              <struct name="30">
+                                 <setting name="PSIE" value="false"/>
+                                 <setting name="PRE" value="false"/>
+                                 <setting name="PFE" value="false"/>
+                                 <setting name="OUTE" value="false"/>
+                                 <setting name="OUTD" value="0"/>
+                              </struct>
+                              <struct name="31">
+                                 <setting name="PSIE" value="false"/>
+                                 <setting name="PRE" value="false"/>
+                                 <setting name="PFE" value="false"/>
+                                 <setting name="OUTE" value="false"/>
+                                 <setting name="OUTD" value="0"/>
+                              </struct>
+                           </array>
+                           <array name="external_trigger_IRQ">
+                              <struct name="0">
+                                 <setting name="TRIE" value="false"/>
+                              </struct>
+                              <struct name="1">
+                                 <setting name="TRIE" value="false"/>
+                              </struct>
+                              <struct name="2">
+                                 <setting name="TRIE" value="false"/>
+                              </struct>
+                              <struct name="3">
+                                 <setting name="TRIE" value="false"/>
+                              </struct>
+                              <struct name="4">
+                                 <setting name="TRIE" value="false"/>
+                              </struct>
+                              <struct name="5">
+                                 <setting name="TRIE" value="false"/>
+                              </struct>
+                              <struct name="6">
+                                 <setting name="TRIE" value="false"/>
+                              </struct>
+                              <struct name="7">
+                                 <setting name="TRIE" value="false"/>
+                              </struct>
+                           </array>
+                        </struct>
+                        <setting name="enable_interrupt" value="false"/>
+                        <struct name="interrupt">
+                           <setting name="IRQn" value="FLEXIO_IRQn"/>
+                           <setting name="enable_interrrupt" value="enabled"/>
+                           <setting name="enable_priority" value="false"/>
+                           <setting name="priority" value="0"/>
+                           <setting name="enable_custom_name" value="false"/>
+                        </struct>
+                        <struct name="flexio_params"/>
+                     </config_set>
+                  </instance>
+               </instances>
+            </functional_group>
+         </functional_groups>
+         <components>
+            <component name="system" uuid="13a4a4cb-da5f-4e21-8439-d7fe5169ecfc" type_id="system">
+               <config_set_global name="global_system_definitions">
+                  <setting name="user_definitions" value=""/>
+                  <setting name="user_includes" value=""/>
+                  <setting name="global_init" value=""/>
+               </config_set_global>
+            </component>
+            <component name="uart_cmsis_common" uuid="2007829a-f36e-4a33-a8bd-b8bfb702e9b7" type_id="uart_cmsis_common">
+               <config_set_global name="global_USART_CMSIS_common" quick_selection="default"/>
+            </component>
+            <component name="msg" uuid="05623daa-2e73-4972-964a-c7a661e37010" type_id="msg">
+               <config_set_global name="global_messages"/>
+            </component>
+            <component name="gpio_adapter_common" uuid="340271c1-24c5-40c0-a4f4-8d944e09d262" type_id="gpio_adapter_common">
+               <config_set_global name="global_gpio_adapter_common" quick_selection="default"/>
+            </component>
+            <component name="generic_uart" uuid="58873693-ddc5-4051-abb6-f807dbba1bd4" type_id="generic_uart">
+               <config_set_global name="global_uart"/>
+            </component>
+            <component name="generic_enet" uuid="837d2a3b-1fe4-4ab2-b65e-8f49e766a367" type_id="generic_enet">
+               <config_set_global name="global_enet"/>
+            </component>
+            <component name="generic_can" uuid="0e1b5f88-05b8-4d3c-81e9-35f6a97fb4c4" type_id="generic_can">
+               <config_set_global name="global_can"/>
+            </component>
+         </components>
+      </periphs>
+      <tee name="TEE" version="7.0" enabled="false" update_project_code="true">
+         <generated_project_files/>
+         <tee_profile>
+            <processor_version>N/A</processor_version>
+         </tee_profile>
+      </tee>
+   </tools>
+</configuration>

@@ -1,0 +1,25 @@
+<data:item xmlns:data="data" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="data ../../xsd/alp.xsd" type="app_note" format="projectfile" versionSchema="1.0.0" name="using-flexio-to-generate-center-aligned-pwm-on-mcxn947" uuid="2056bad2-2c29-4d0f-821d-8efac8630a33">
+    <display_title>
+        How to use FlexIO state mode to generate center aligned PWM on MCXN Series MCU
+    </display_title>
+    <overview>
+        <![CDATA[This software accompanies application note, which describes how to use FlexIO state mode to generate center aligned PWM on MCXN Series MCU.]]>
+    </overview>
+    <toolchains>
+        <toolchain name="mcux"></toolchain>
+    </toolchains>
+    <families>
+        <family name="mcx"></family>
+    </families>
+    <nxp_compatible_hw>
+        <hw id="FRDM-MCXN947"></hw>
+    </nxp_compatible_hw>
+    <peripherals>
+        <peripheral name="flexio"></peripheral>
+        <peripheral name="pwm"></peripheral>
+    </peripherals>
+    <categories>
+        <category name="industrial"></category>
+        <category name="motor_control"></category>
+    </categories>
+</data:item>
